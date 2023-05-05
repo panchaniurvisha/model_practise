@@ -1,4 +1,16 @@
 class FirstScreenUserModel {
+  List<RoomModel>? roomList;
+  FirstScreenUserModel({
+    this.roomList,
+  });
+  FirstScreenUserModel.fromJson(Map<String, dynamic> data) {
+    roomList = (data["roomList"] as List)
+        .map((value) => RoomModel.fromJson(value))
+        .toList();
+  }
+}
+
+class RoomModel {
   String? rent;
   String? hotelName;
   String? image;
@@ -8,7 +20,8 @@ class FirstScreenUserModel {
   String? kitchen;
   int? nightsNumber;
   int? adultsNumber;
-  FirstScreenUserModel({
+
+  RoomModel({
     this.rent,
     this.hotelName,
     this.image,
@@ -19,7 +32,7 @@ class FirstScreenUserModel {
     this.nightsNumber,
     this.adultsNumber,
   });
-  FirstScreenUserModel.fromJson(Map<String, dynamic> data) {
+  RoomModel.fromJson(Map<String, dynamic> data) {
     rent = data["data"];
     hotelName = data["hotelName"];
     image = data["image"];

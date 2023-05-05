@@ -118,7 +118,7 @@ class _FirstScreenPractiseState extends State<FirstScreenPractise> {
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
                   physics: const AlwaysScrollableScrollPhysics(),
-                  itemCount: 5,
+                  itemCount: userModel.roomList!.length,
                   itemBuilder: (context, index) => Container(
                     margin: EdgeInsets.only(bottom: height / 10),
                     height: height / 1.297,
@@ -142,10 +142,10 @@ class _FirstScreenPractiseState extends State<FirstScreenPractise> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image.asset(
-                            "${userModel.image}",
+                            "${userModel.roomList![index].image}",
                           ),
                           Text(
-                            "${userModel.hotelName}",
+                            "${userModel.roomList![index].hotelName}",
                             style: TextStyle(
                               height: 3,
                               color: AppColors.blackColor,
@@ -156,20 +156,21 @@ class _FirstScreenPractiseState extends State<FirstScreenPractise> {
                           ),
                           AppFirstScreenRow(
                             image: AppImages.bedIcon,
-                            text: "${userModel.bedQuantity}",
+                            text: "${userModel.roomList![index].bedQuantity}",
                           ),
                           AppFirstScreenRow(
                             image: AppImages.profileIcon,
                             text:
-                                "${AppString.occupancy}${userModel.occupancy}",
+                                "${AppString.occupancy}${userModel.roomList![index].occupancy}",
                           ),
                           AppFirstScreenRow(
                             image: AppImages.rectangularIcon,
-                            text: "${userModel.fit}${AppString.fit}",
+                            text:
+                                "${userModel.roomList![index].fit}${AppString.fit}",
                           ),
                           AppFirstScreenRow(
                             image: AppImages.cupIcon,
-                            text: "${userModel.kitchen}",
+                            text: "${userModel.roomList![index].kitchen}",
                           ),
                           SizedBox(
                             height: height / 40,
@@ -179,7 +180,7 @@ class _FirstScreenPractiseState extends State<FirstScreenPractise> {
                           const AppFirstScreenSecondRow(
                               text: AppString.information),
                           Text(
-                            "${userModel.nightsNumber}${AppString.night}${userModel.adultsNumber}${AppString.adults}",
+                            "${userModel.roomList![index].nightsNumber}${AppString.night}${userModel.roomList![index].adultsNumber}${AppString.adults}",
                             style: TextStyle(
                               height: height / 320,
                               color: AppColors.blackColor,
