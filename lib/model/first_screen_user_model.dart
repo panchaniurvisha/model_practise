@@ -33,7 +33,7 @@ class RoomModel {
     this.adultsNumber,
   });
   RoomModel.fromJson(Map<String, dynamic> data) {
-    rent = data["data"];
+    rent = data["rent"];
     hotelName = data["hotelName"];
     image = data["image"];
     bedQuantity = data["bedQuantity"];

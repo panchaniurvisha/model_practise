@@ -129,7 +129,6 @@ class _FirstScreenPractiseState extends State<FirstScreenPractise> {
                           BoxShadow(
                               color: AppColors.blackTwoColor,
                               blurRadius: 46,
-                              blurStyle: BlurStyle.outer,
                               offset: Offset(-2, 4))
                         ]),
                     child: Padding(
@@ -141,8 +140,66 @@ class _FirstScreenPractiseState extends State<FirstScreenPractise> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            "${userModel.roomList![index].image}",
+                          Stack(
+                            alignment: Alignment.topRight,
+                            children: [
+                              Image.asset(
+                                "${userModel.roomList![index].image}",
+                              ),
+                              Transform.translate(
+                                offset: Offset(55, 0),
+                                child: Container(
+                                  padding: EdgeInsets.all(height / 80),
+                                  width: width / 2.8,
+                                  decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                      // color: AppColors.whiteColor,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: AppColors.blackLightColor,
+                                          offset: Offset(-3, 4),
+                                          blurRadius: 31,
+                                        )
+                                      ]),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        AppString.wrongRent,
+                                        style: TextStyle(
+                                          decoration:
+                                              TextDecoration.lineThrough,
+                                          decorationThickness: height / 250,
+                                          color: AppColors.grayColorOne,
+                                          fontSize: height / 50,
+                                          fontFamily: "Open Sans",
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                      Text(
+                                        "${userModel.roomList![index].rent}",
+                                        style: TextStyle(
+                                          color: AppColors.blackColor,
+                                          fontSize: height / 40,
+                                          fontFamily: "Open Sans",
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      Text(
+                                        AppString.total,
+                                        style: TextStyle(
+                                          color: AppColors.blackColor,
+                                          fontSize: height / 60,
+                                          fontFamily: "Open Sans",
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                           Text(
                             "${userModel.roomList![index].hotelName}",
