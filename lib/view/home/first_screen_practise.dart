@@ -56,59 +56,60 @@ class _FirstScreenPractiseState extends State<FirstScreenPractise> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            AppString.date,
-                            style: TextStyle(
-                              color: AppColors.grayColorOne,
-                              fontSize: height / 60,
-                              fontFamily: "Open Sans",
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          SizedBox(
-                            width: width / 14,
-                          ),
-                          Text(
-                            AppString.nights,
-                            style: TextStyle(
-                              color: AppColors.grayColorOne,
-                              fontSize: height / 60,
-                              fontFamily: "Open Sans",
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
+                      Text(
+                        AppString.name,
+                        style: TextStyle(
+                          color: AppColors.blackColor,
+                          fontSize: height / 45,
+                          fontFamily: "Open Sans",
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(
-                          bottom: height / 30,
-                        ),
-                        child: Text(
-                          AppString.name,
-                          style: TextStyle(
-                            color: AppColors.blackColor,
-                            fontSize: height / 45,
-                            fontFamily: "Open Sans",
-                            fontWeight: FontWeight.w600,
-                          ),
+                        padding: EdgeInsets.only(bottom: height / 60),
+                        child: Row(
+                          children: [
+                            Text(
+                              AppString.date,
+                              style: TextStyle(
+                                color: AppColors.grayColorOne,
+                                fontSize: height / 60,
+                                fontFamily: "Open Sans",
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            SizedBox(
+                              width: width / 14,
+                            ),
+                            Text(
+                              AppString.nights,
+                              style: TextStyle(
+                                color: AppColors.grayColorOne,
+                                fontSize: height / 60,
+                                fontFamily: "Open Sans",
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      debugPrint("pressed");
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.blueColor,
+                  Transform.scale(
+                    scale: height / 1000,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        debugPrint("pressed");
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.blueColor,
+                      ),
+                      child: const Text(AppString.dateUpdate,
+                          style: TextStyle(
+                            fontFamily: "Open Sans",
+                            fontWeight: FontWeight.w600,
+                          )),
                     ),
-                    child: const Text(AppString.dateUpdate,
-                        style: TextStyle(
-                          fontFamily: "Open Sans",
-                          fontWeight: FontWeight.w600,
-                        )),
                   ),
                 ],
               ),
@@ -147,7 +148,7 @@ class _FirstScreenPractiseState extends State<FirstScreenPractise> {
                                 "${userModel.roomList![index].image}",
                               ),
                               Transform.translate(
-                                offset: Offset(55, 0),
+                                offset: const Offset(55, 0),
                                 child: Container(
                                   padding: EdgeInsets.all(height / 80),
                                   width: width / 2.8,
