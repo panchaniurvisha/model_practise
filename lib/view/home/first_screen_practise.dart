@@ -95,21 +95,22 @@ class _FirstScreenPractiseState extends State<FirstScreenPractise> {
                       ),
                     ],
                   ),
-                  Transform.scale(
-                    scale: height / 1000,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        debugPrint("pressed");
-                      },
-                      style: ElevatedButton.styleFrom(
+                  SizedBox(
+                    width: width / 18,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      debugPrint("pressed");
+                    },
+                    style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.blueColor,
-                      ),
-                      child: const Text(AppString.dateUpdate,
-                          style: TextStyle(
-                            fontFamily: "Open Sans",
-                            fontWeight: FontWeight.w600,
-                          )),
-                    ),
+                        minimumSize: Size(width / 25, height / 28)),
+                    child: Text(AppString.dateUpdate,
+                        style: TextStyle(
+                          fontFamily: "Open Sans",
+                          fontWeight: FontWeight.w600,
+                          fontSize: height / 80,
+                        )),
                   ),
                 ],
               ),
